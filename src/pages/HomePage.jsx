@@ -5,7 +5,7 @@ import Reviews from "../components/Reviews.jsx";
 function HomePage() {
     return (
         <div className="flex flex-col gap-24">
-            <section className="w-full flex justify-center items-center">
+            <section id="about" className="w-full flex justify-center items-center">
                 <div className="max-w-7xl w-full">
                     <h2 className="font-medium text-4xl pb-8 uppercase">О нас</h2>
                     <div className="flex">
@@ -27,8 +27,11 @@ function HomePage() {
                 </div>
             </section>
 
-            <section
-                className="px-64 pt-16 pb-24 text-white w-screen flex flex-col bg-[url('/rails.png')] bg-no-repeat bg-opacity-30  bg-cover">
+            <section id="how-it-works"
+                className="px-64 pt-16 pb-24 text-white w-screen relative flex flex-col bg-[url('/rails.png')] bg-no-repeat bg-cover">
+                {/*overflow пришлось делать других цветов в макете неверное opacity и bg-color*/}
+                <div className="absolute inset-0 bg-yellow-chromatic opacity-60"></div>
+                <div className="relative z-10">
                 <div className="flex justify-between">
                     <h2 className="font-medium text-4xl uppercase">Как это работает</h2>
                     <Button variant="moreInfo" size="big" type="button" text="Узнать больше"/>
@@ -44,9 +47,10 @@ function HomePage() {
                         <p>Огромный выбор направлений</p>
                     </Icon>
                 </div>
+                </div>
             </section>
 
-            <section className="w-full px-4 md:px-10 lg:px-20 py-16 bg-white flex justify-center">
+            <section id="reviews" className="w-full px-4 md:px-10 lg:px-20 py-16 bg-white flex justify-center">
                 <div className="max-w-6xl w-full flex flex-col gap-12">
                     <h2 className="text-4xl font-semibold text-left">Отзывы</h2>
                     <div className="flex justify-between gap-12">

@@ -3,7 +3,7 @@ import Button from "./Button.jsx";
 
 function Footer() {
     return (
-        <div className="footer w-full pb-8 bg-black-light text-white text-2xl ">
+        <section id="contact-us" className="footer w-full pb-8 bg-black-light text-white text-2xl ">
             <div className="w-full flex gap-48 justify-center pt-12">
                 <div className="">
                     <h2 className="text-3xl pb-7">Свяжитесь с нами</h2>
@@ -51,7 +51,7 @@ function Footer() {
                 <Icon name="scroll-to-top-icon" className="w-8 h-8"/>
                 <p className="text-2xl font-light">2018 WEB</p>
             </div>
-        </div>
+        </section>
     )
 }
 
