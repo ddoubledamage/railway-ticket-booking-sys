@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -6,17 +7,25 @@
     --color-yellow: #FDB935;
     --color-yellow-overflow:#FFD600;
     --color-yellow-chromatic: #FFA800;
+    --color-stepper: rgba(255, 168, 0, 1);
     --color-white: #FFFFFF;
     --color-gray-light: #E5E5E5;
     --color-gray-darker: #928F94;
+    --color-gray-stepper: rgba(62, 60, 65, 1);
+    --color-gray-shadow: rgba(41, 41, 41);
     --color-black-light: #2D2B2F;
+
+    --font-roboto: 'Roboto', sans-serif;
+}
+html, body {
+    @apply font-roboto;
 }
 
 .nav-item {
-    @apply h-full flex items-center px-4 hover:bg-gray-900 transition-colors;
+    @apply h-full flex items-center hover:bg-gray-900 transition-colors px-6;
 }
 .nav-item > a {
-    @apply h-full flex items-center
+    @apply h-full flex items-center font-light
 }
 input{
     @apply px-4 py-2 bg-amber-50 opacity-100 h-[3.75rem] w-[20.3rem] m-0

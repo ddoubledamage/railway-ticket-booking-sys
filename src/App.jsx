@@ -1,17 +1,27 @@
+import {Routes, Route } from 'react-router-dom';
 import './App.css'
 import HomePage from './pages/HomePage.jsx'
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
+import MainLayout from "./layouts/MainLayout.jsx";
+import SearchPage from "./pages/SearchPage.jsx";
+import SeatsPage from "./pages/SeatsPage.jsx";
+import PassengersInfoPage from "./pages/PassengersInfoPage.jsx";
+import PaymentPage from "./pages/PaymentPage.jsx";
+import ConfirmationPage from "./pages/ConfirmationPage.jsx";
+import SuccessPage from "./pages/SuccessPage.jsx";
 
 function App() {
     return (
-        <div className="min-h-screen w-full max-w- flex flex-col bg-white">
-            <Header/>
-            <main className="flex flex-grow pt-36 ">
-               <HomePage/>
-            </main>
-            <Footer/>
-        </div>
+        <Routes>
+            <Route path="/" element={<MainLayout />}>
+                <Route index element={<HomePage />} />
+                <Route path="search" element={<SearchPage />}/>
+                <Route path="seats" element={<SeatsPage />}/>
+                <Route path="passangers" element={<PassengersInfoPage />}/>
+                <Route path="payment" element={<PaymentPage />}/>
+                <Route path="confirmation" element={<ConfirmationPage />}/>
+                <Route path="success" element={<SuccessPage />}/>
+            </Route>
+        </Routes>
     )
 }
 
