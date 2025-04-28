@@ -11,11 +11,16 @@
     --color-white: #FFFFFF;
     --color-gray-light: #E5E5E5;
     --color-gray-darker: #928F94;
+    --color-gray-card: rgba(228, 224, 233, 1);
+    --color-gray-border: rgba(196, 196, 196, 1);
+    --color-gray-text: rgba(146, 143, 148, 1);
     --color-gray-stepper: rgba(62, 60, 65, 1);
     --color-gray-shadow: rgba(41, 41, 41);
     --color-black-light: #2D2B2F;
 
     --font-roboto: 'Roboto', sans-serif;
+
+    --font-size-secondary: 18px;
 }
 html, body {
     @apply font-roboto;
