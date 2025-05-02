@@ -1,10 +1,10 @@
 
 function Button({text, onClick, className = '', type = 'button', variant = 'primary', size='medium'}) {
 
-    const baseStyle = "font-semibold rounded-md";
+    const baseStyle = "font-semibold rounded-md cursor-pointer";
 
     const variantStyles = {
-        searchTickets: 'bg-yellow-chromatic hover:shadow-xl active:bg-white',
+        searchTickets: 'bg-yellow-chromatic hover:shadow-xl active:bg-white active:text-yellow-chromatic',
         subscribe: 'bg-none border border-white hover:bg-yellow-light active:bg-white',
         moreInfo: 'bg-none border border-white hover:bg-yellow-light active:bg-white',
     }

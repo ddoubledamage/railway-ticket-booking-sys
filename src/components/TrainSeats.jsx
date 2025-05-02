@@ -1,4 +1,4 @@
-// src/components/TrainSeats.jsx
+
 import Icon from './Icon.jsx';
 import Button from "./Button.jsx";
 
@@ -9,7 +9,7 @@ export default function TrainSeats({
                                        haveAirCond,
                                        isExpress,
                                    }) {
-    // Описываем порядок и подписи классов
+
     const CLASSES = [
         { key: 'first_class',  label: 'Люкс'     },
         { key: 'second_class', label: 'Купе'     },
@@ -19,12 +19,11 @@ export default function TrainSeats({
 
     return (
         <div className="flex flex-col justify-between h-full">
-            {/* Секция с типами вагонов и ценами */}
             <div className="space-y-2">
                 {CLASSES.map(({ key, label }) => {
                     const count = seatsInfo[key];
                     const price = priceInfo[key];
-                    // Показываем только те классы, где есть данные
+
                     if (count == null || price == null) return null;
                     return (
                         <div key={key} className="flex items-center">
@@ -37,10 +36,9 @@ export default function TrainSeats({
                 })}
             </div>
 
-            {/* Иконки доп. Услуг и кнопка */}
-            <div className="text-white">
-                <div className="flex space-x-3">
-                    <Icon name="ticket-icons"/>
+            <div className="text-white flex flex-col items-center">
+                <div className="mt-9 mb-4">
+                    <Icon name="ticket-icons" className="w-24 h-5 flex"/>
                 </div>
                 <Button variant="searchTickets" text="Выбрать места" size="mediumPlus" />
             </div>

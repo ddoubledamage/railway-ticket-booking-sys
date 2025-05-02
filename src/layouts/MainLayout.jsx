@@ -10,7 +10,7 @@ const MainLayout = () => {
     return (
         <div className="min-h-screen w-full flex flex-col bg-white">
             <Header variant={isHome ? "large" : "compact"}/>
-            <main className="flex flex-grow pt-36">
+            <main className={isHome ? "flex flex-grow pt-36" : "flex flex-grow pt-24 justify-center"}>
                 <Outlet/>
             </main>
             <Footer/>

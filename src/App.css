@@ -16,6 +16,7 @@
     --color-gray-text: rgba(146, 143, 148, 1);
     --color-gray-stepper: rgba(62, 60, 65, 1);
     --color-gray-shadow: rgba(41, 41, 41);
+    --color-gray-slider: #C4C4C4;
     --color-black-light: #2D2B2F;
 
     --font-roboto: 'Roboto', sans-serif;
@@ -24,6 +25,7 @@
 }
 html, body {
     @apply font-roboto;
+    overflow-x: hidden;
 }
 
 .nav-item {
