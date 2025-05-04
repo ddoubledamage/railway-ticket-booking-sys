@@ -24,9 +24,9 @@ export function Pagination({currentPage = 1, totalPages = 3, onPageChange}) {
                 if (isCurrent) {
                     buttonClasses += ' bg-yellow-chromatic text-white border-yellow-500';
                 } else if (isNext) {
-                    buttonClasses += ' text-gray-300 border-gray-200';
+                    buttonClasses += ' text-gray-600 border-gray-200';
                 } else {
-                    buttonClasses += ' text-gray-600 border-yellow-500';
+                    buttonClasses += ' text-gray-600 border-gray-200';
                 }
                 return (
                     <button

@@ -40,7 +40,7 @@ export default function TrainSeats({
                 <div className="mt-9 mb-4">
                     <Icon name="ticket-icons" className="w-24 h-5 flex"/>
                 </div>
-                <Button variant="searchTickets" text="Выбрать места" size="mediumPlus" />
+                <Button variant="searchTickets" text="Выбрать места" size="mediumPlus"/>
             </div>
         </div>
     );
