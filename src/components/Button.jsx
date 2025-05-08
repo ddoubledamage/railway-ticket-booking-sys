@@ -7,6 +7,7 @@ function Button({text, onClick, className = '', type = 'button', variant = 'prim
         searchTickets: 'bg-yellow-chromatic hover:shadow-xl active:bg-white active:text-yellow-chromatic',
         subscribe: 'bg-none border border-white hover:bg-yellow-light active:bg-white',
         moreInfo: 'bg-none border border-white hover:bg-yellow-light active:bg-white',
+        anotherTrain: 'bg-none border border-black hover:bg-yellow-light active:bg-white',
     }
     const sizeStyles ={
         extraSmall: 'w-5 h-5',
