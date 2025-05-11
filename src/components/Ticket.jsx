@@ -5,11 +5,11 @@ import TrainSeats from "./TrainSeats.jsx";
 function Ticket({item, onSelectSeats }) {
     return (
         <div className="flex flex-row max-w-5xl border border-gray-border">
-            <TrainInfo trainNumber={item.train.number} route={{
+            <TrainInfo trainNumber={item.departure.train.number} route={{
                 from: item.departure.from.city.name,
-                to: item.arrival.to.city.name,
+                to: item.departure.to.city.name,
             }}
-                       trainName={item.train.name}/>
+                       trainName={item.departure.train.name}/>
 
             <TrainSchedule departure={item.departure}
                            arrival={item.arrival}
@@ -17,7 +17,7 @@ function Ticket({item, onSelectSeats }) {
             />
             <div className="w-1/4 p-5">
                 <TrainSeats
-                    seatsInfo={item.seats_info}
+                    seatsInfo={item.departure.available_seats_info}
                     priceInfo={item.price_info}
                     haveWifi={item.have_wifi}
                     haveAirCond={item.have_air_conditioning}

@@ -3,8 +3,8 @@ import Icon from './Icon.jsx';
 import Button from "./Button.jsx";
 
 export default function TrainSeats({
-                                       seatsInfo,
-                                       priceInfo,
+                                       seatsInfo = {},
+                                       priceInfo = {},
                                        haveWifi,
                                        haveAirCond,
                                        isExpress,
