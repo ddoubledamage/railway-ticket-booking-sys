@@ -1,13 +1,16 @@
 import TrainInfo from "./TrainInfo.jsx";
 import TrainSchedule from "./TrainSchedule.jsx";
 import TrainSeats from "./TrainSeats.jsx";
+import {capitalizeCityName} from "../utils/capitalizeCityName.js";
+
+
 
 function Ticket({item, onSelectSeats }) {
     return (
         <div className="flex flex-row max-w-5xl border border-gray-border">
             <TrainInfo trainNumber={item.departure.train.number} route={{
-                from: item.departure.from.city.name,
-                to: item.departure.to.city.name,
+                from: capitalizeCityName(item.departure.from.city.name),
+                to: capitalizeCityName(item.departure.to.city.name),
             }}
                        trainName={item.departure.train.name}/>
 
@@ -18,10 +21,10 @@ function Ticket({item, onSelectSeats }) {
             <div className="w-1/4 p-5">
                 <TrainSeats
                     seatsInfo={item.departure.available_seats_info}
-                    priceInfo={item.price_info}
-                    haveWifi={item.have_wifi}
-                    haveAirCond={item.have_air_conditioning}
-                    isExpress={item.is_express}
+                    priceInfo={item.departure.price_info}
+                    haveWifi={item.departure.have_wifi}
+                    haveAirCond={item.departure.have_air_conditioning}
+                    isExpress={item.departure.is_express}
                     onSelectSeats={onSelectSeats}
                 />
             </div>

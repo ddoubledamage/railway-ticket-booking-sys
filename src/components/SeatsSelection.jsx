@@ -28,9 +28,9 @@ function SeatsSelection({item,onBack}) {
             </div>
             <div className="flex flex-row bg-gray-background py-4 px-8">
                 <TrainInfo
-                    trainNumber={train.number}
-                    trainName={train.name}
-                    route={{ from: departure.from.city.name, to: arrival.to.city.name }}
+                    trainNumber={item.departure.train.number}
+                    trainName={item.departure.train.name}
+                    route={{ from: departure.from.city.name, to: departure.to.city.name }}
                     variant="compact"
                 />
 

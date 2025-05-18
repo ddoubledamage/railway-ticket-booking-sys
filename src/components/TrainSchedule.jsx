@@ -11,7 +11,7 @@ function TrainSchedule({ departure, arrival, duration, isReturn = false, variant
                 {/* Откуда */}
                 <div className="flex flex-col">
           <span className="text-2xl font-bold">
-            {formatTime(departure.datetime)}
+            {formatTime(departure.from.datetime)}
           </span>
                     <span className="font-normal text-secondary">
             {departure.from.city.name}
@@ -39,7 +39,7 @@ function TrainSchedule({ departure, arrival, duration, isReturn = false, variant
                 <div className="flex flex-row">
                     <Icon name="clock-xs" className="w-[30px] h-[30px]" />
                     <div className="pl-1">
-                        {formatDuration(duration, 'secondary')}
+                        {formatDuration(departure.duration, 'secondary')}
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@ function TrainSchedule({ departure, arrival, duration, isReturn = false, variant
             {/* Откуда */}
             <div className="flex flex-col">
         <span className="text-2xl font-bold">
-          {formatTime(departure.datetime)}
+          {formatTime(departure.from.datetime)}
         </span>
                 <span className="font-normal text-secondary">
           {departure.from.city.name}
@@ -63,7 +63,7 @@ function TrainSchedule({ departure, arrival, duration, isReturn = false, variant
             </div>
 
             <div className="text-xl font-normal text-gray-text">
-                {formatDuration(duration)}
+                {formatDuration(departure.duration)}
                 <Icon name="arrow-orange" className={isReturn ? 'transform-scale-[-1] w-7 h-5' : 'w-8 h-5'} />
             </div>
 
