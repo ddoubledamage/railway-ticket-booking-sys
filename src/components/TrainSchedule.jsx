@@ -1,5 +1,6 @@
 import {formatTime, formatDuration} from "../utils/format.js";
 import Icon from "./Icon.jsx";
+import {capitalizeCityName} from "../utils/capitalizeCityName.js";
 
 
 function TrainSchedule({ departure, arrival, duration, isReturn = false, variant = "default" }) {
@@ -14,7 +15,7 @@ function TrainSchedule({ departure, arrival, duration, isReturn = false, variant
             {formatTime(departure.from.datetime)}
           </span>
                     <span className="font-normal text-secondary">
-            {departure.from.city.name}
+            {capitalizeCityName(departure.from.city.name)}
           </span>
                     <span className="font-normal text-gray-text">
             {departure.from.railway_station_name}
@@ -29,7 +30,7 @@ function TrainSchedule({ departure, arrival, duration, isReturn = false, variant
             {formatTime(hasArrival ? arrival.datetime : departure.to.datetime)}
           </span>
                     <span className="font-normal text-secondary">
-            {(hasArrival ? arrival.to.city.name : departure.to.city.name)}
+            {(hasArrival ? capitalizeCityName(arrival.to.city.name): capitalizeCityName(departure.to.city.name))}
           </span>
                     <span className="font-normal text-gray-text">
             {(hasArrival ? arrival.to.railway_station_name : departure.to.railway_station_name)}
