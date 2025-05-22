@@ -15,7 +15,6 @@ function SearchForm({variant}) {
 
     const handleSearch = async (e) => {
         e.preventDefault();
-
         if(!from || !to || !dateStart) {
             alert("Введите валидную дату");
             return;
@@ -79,8 +78,8 @@ function SearchForm({variant}) {
             <form className="space-y-2 relative">
                 <p className="text-amber-50 text-3xl font-light">Дата</p>
                 <div className="flex flex-row gap-10 items-center">
-                <input type="date" value={dateStart} onChange={(e) => setDateStart(e.target.value)}/>
-                <input type="date" value={dateEnd} onChange={(e) => setDateEnd(e.target.value)}/>
+                <input type="date" className="w-80 h-16 bg-white px-4" value={dateStart} onChange={(e) => setDateStart(e.target.value)}/>
+                <input type="date" className="w-80 h-16 bg-white px-4" value={dateEnd} onChange={(e) => setDateEnd(e.target.value)}/>
                 </div>
                 {!isLarge && (
                     <Button

@@ -18,12 +18,12 @@ function AsideMenu() {
             <div className="flex flex-col gap-6 py-10">
                 <form action="">
                     <span className="text-white font-normal text-3xl">Дата поездки</span>
-                    <input type="date"/>
+                    <input type="date" className="w-80 h-16 bg-white px-4"/>
                 </form>
 
                 <form action="">
                     <span className="text-white font-normal text-3xl">Дата возвращения</span>
-                    <input type="date"/>
+                    <input type="date" className="w-80 h-16 bg-white px-4"/>
                 </form>
             </div>
 

@@ -17,7 +17,7 @@ export default function CityInput({label, onSelect}) {
             <input
                 type="text"
                 placeholder={label}
-                className=""
+                className="w-80 h-16 bg-white px-4"
                 value={query}
                 onChange={(e) => {
                     setQuery(e.target.value);

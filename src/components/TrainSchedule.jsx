@@ -37,8 +37,9 @@ function TrainSchedule({ departure, arrival, duration, isReturn = false, variant
           </span>
                 </div>
 
-                <div className="flex flex-row">
-                    <Icon name="clock-xs" className="w-[30px] h-[30px]" />
+                <div className="flex flex-row relative">
+                    <div className="absolute top-[-40px] bottom-[-40px] ml-3.5 left-0 w-px bg-white"></div>
+                    <Icon name="clock-xs" className="w-[30px] h-[30px] ml-8"/>
                     <div className="pl-1">
                         {formatDuration(departure.duration, 'secondary')}
                     </div>
