@@ -34,9 +34,6 @@ function Header({variant}) {
             <div className="flex flex-row items-center gap-10 justify-center mt-auto">
                 <SearchForm/>
             </div>
-            <div>
-                <Stepper activeStep={1}/>
-            </div>
         </div>
     )
 

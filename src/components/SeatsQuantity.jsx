@@ -1,5 +1,6 @@
 import {useState} from "react";
 import TicketQuantityItem from "./TicketQuantityItem.jsx";
+import PlazcartCarriage from "./PlazcartCarriage.jsx";
 
 export default function SeatQuantity() {
 
@@ -39,7 +40,7 @@ export default function SeatQuantity() {
                     <span className="text-7xl font-bold">07</span>
                     <span className="text-2xl"> вагон</span>
                 </div>
-                <div className="flex flex-row w-full">
+                <div className="flex flex-row w-full justify-around">
                     <div>
                         <p>Места</p>
                         <p>Верхние</p>
@@ -48,10 +49,18 @@ export default function SeatQuantity() {
 
                     <div>
                         <p>Стоимость</p>
-                        <p>Скокато</p>
-                        <p>Сколькото</p>
+                        <p>Скока-то</p>
+                        <p>Сколько-то</p>
+                    </div>
+
+                    <div>
+                        <p>Обслуживание</p>
                     </div>
                 </div>
+
+            </div>
+            <div>
+                <PlazcartCarriage/>
             </div>
         </div>
     )

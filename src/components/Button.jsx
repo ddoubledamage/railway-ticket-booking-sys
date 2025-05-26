@@ -8,11 +8,13 @@ function Button({text, onClick, className = '', type = 'button', variant = 'prim
         subscribe: 'bg-none border border-white hover:bg-yellow-light active:bg-white',
         moreInfo: 'bg-none border border-white hover:bg-yellow-light active:bg-white',
         anotherTrain: 'bg-none border border-black hover:bg-yellow-light active:bg-white',
+        next: 'bg-stepper rounded-md cursor-pointer',
     }
     const sizeStyles ={
         extraSmall: 'w-5 h-5',
         small: 'w-8 h-8',
         medium: 'w-40 h-16',
+        large: 'w-52 h-16',
         mediumPlus: 'w-56 h-9',
         big: 'w-80 h-16',
     }
