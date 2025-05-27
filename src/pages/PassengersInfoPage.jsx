@@ -1,19 +1,42 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PassengersList from "../components/PassangersList.jsx";
-import Button from "../components/Button.jsx";
-import {useNavigate} from "react-router-dom";
+import { useOrderStore } from "../store/orderStore";
 
-function PassengersInfoPage() {
+export default function PassengersInfoPage() {
     const navigate = useNavigate();
-    const handleClick = () => {
+    const setPassengers = useOrderStore((state) => state.setPassengers);
+
+    const [passengers, setLocalPassengers] = useState([
+        {
+            first_name: "",
+            last_name: "",
+            patronymic: "",
+            birthday: "",
+            gender: true,
+            document_type: "passport",
+            document_data: "",
+            is_adult: true,
+        },
+    ]);
+
+    const handleSubmit = () => {
+        setPassengers(passengers); // сохраняем в Zustand
         navigate("/payment");
-    }
+    };
 
     return (
-        <div className="flex flex-col">
-            <PassengersList/>
-            <Button variant="next" size="large" className="ml-auto" text="Далее" onClick={handleClick} />
-        </div>
-    )
-}
+        <div className="max-w-4xl mx-auto px-4 py-8">
+            <PassengersList passengers={passengers} setPassengers={setLocalPassengers} />
 
-export default PassengersInfoPage;
+            <div className="text-right mt-8">
+                <button
+                    onClick={handleSubmit}
+                    className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-6 py-3 rounded"
+                >
+                    Далее
+                </button>
+            </div>
+        </div>
+    );
+}
