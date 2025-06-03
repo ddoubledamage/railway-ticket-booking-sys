@@ -7,7 +7,7 @@ import Button from "./Button.jsx";
 
 
 
-function Ticket({item, onSelectSeats, variant = "default", onBack }) {
+function Ticket({item, onSelectSeats, variant = "default" }) {
 
     if (variant === 'compact') {
         return (

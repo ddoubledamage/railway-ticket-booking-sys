@@ -15,7 +15,7 @@ function SearchForm({variant}) {
 
     const handleSearch = async (e) => {
         e.preventDefault();
-        if(!from || !to || !dateStart) {
+        if(!from || !to ) {
             alert("Введите валидную дату");
             return;
         }
