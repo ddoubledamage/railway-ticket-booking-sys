@@ -1,6 +1,8 @@
 import { useState } from "react";
 import TicketQuantityItem from "./TicketQuantityItem.jsx";
 import SeatsScheme from "./SeatsScheme.jsx";
+import SittingScheme from "./SittingScheme.jsx";
+import CoupeScheme from "./CoupeScheme.jsx"; // подключаем схему сидячего
 
 const coachTypeLabels = [
     { key: 'fourth', label: 'Сидячий' },
@@ -9,20 +11,16 @@ const coachTypeLabels = [
     { key: 'first', label: 'Люкс' },
 ];
 
-// Пример массива вагонов — подставишь свои данные из API
-// const coaches = props.coaches || []; 
-
 export default function TicketPicker({ coaches = [] }) {
-    // Состояния
     const [selectedCoachType, setSelectedCoachType] = useState(null);
     const [selectedCoachId, setSelectedCoachId] = useState(null);
 
-    // Фильтрация вагонов по выбранному типу
     const filteredCoaches = selectedCoachType
         ? coaches.filter(c => c.coach.class_type === selectedCoachType)
         : [];
 
-    // Для простоты, номер вагона — из coach.name (или добавь как нужно)
+    const selectedCoachObj = filteredCoaches.find(c => c.coach._id === selectedCoachId);
+
     return (
         <div>
             <h2 className="font-bold text-3xl mt-10 ml-5 mb-3">Количество билетов</h2>
@@ -44,7 +42,7 @@ export default function TicketPicker({ coaches = [] }) {
                         `}
                         onClick={() => {
                             setSelectedCoachType(key);
-                            setSelectedCoachId(null); // сброс выбранного вагона при смене типа
+                            setSelectedCoachId(null);
                         }}
                     >
                         {label}
@@ -79,17 +77,30 @@ export default function TicketPicker({ coaches = [] }) {
             </div>
 
             <div className="mt-10">
-                {selectedCoachId && (
+                {selectedCoachId && selectedCoachObj && (
                     <div>
                         <p className="text-lg font-bold mb-3">Места в выбранном вагоне</p>
-                        <SeatsScheme
-                            seats={filteredCoaches.find(c => c.coach._id === selectedCoachId)?.seats || []}
-                            coach={filteredCoaches.find(c => c.coach._id === selectedCoachId)?.coach}
-                            // onSelectSeats={...} // если хочешь сохранять выбор выше
-                        />
+
+                        {selectedCoachObj.coach.class_type === "fourth" ? (
+                            <SittingScheme
+                                seats={selectedCoachObj.seats}
+                                coach={selectedCoachObj.coach}
+                                resetKey={selectedCoachId}
+                            />
+                        ) : selectedCoachObj.coach.class_type === "second" ? (
+                            <CoupeScheme
+                                seats={selectedCoachObj.seats}
+                                coach={selectedCoachObj.coach}
+                                resetKey={selectedCoachId}
+                            />
+                        ): <SeatsScheme
+                            seats={selectedCoachObj.seats}
+                            coach={selectedCoachObj.coach}
+                            resetKey={selectedCoachId}
+                        />}
                     </div>
                 )}
             </div>
         </div>
-    )
+    );
 }

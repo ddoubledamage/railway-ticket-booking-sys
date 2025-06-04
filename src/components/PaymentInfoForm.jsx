@@ -13,12 +13,11 @@ export default function PaymentInfoForm({ onChange }) {
     const updateField = (field, value) => {
         const updated = { ...formData, [field]: value };
         setFormData(updated);
-        if (onChange) onChange(updated); // передаём наружу в PaymentPage
+        if (onChange) onChange(updated);
     };
 
     return (
         <div className="space-y-6 bg-white border rounded p-6 shadow">
-            {/* Персональные данные */}
             <div>
                 <h2 className="text-lg font-semibold mb-4">Персональные данные</h2>
                 <div className="grid grid-cols-3 gap-4 mb-4">
@@ -58,7 +57,6 @@ export default function PaymentInfoForm({ onChange }) {
                 </div>
             </div>
 
-            {/* Способ оплаты */}
             <div>
                 <h2 className="text-lg font-semibold mb-4">Способ оплаты</h2>
                 <div className="flex flex-col gap-3 pl-1">

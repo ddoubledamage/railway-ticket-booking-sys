@@ -15,8 +15,8 @@ function SearchForm({variant}) {
 
     const handleSearch = async (e) => {
         e.preventDefault();
-        if(!from || !to ) {
-            alert("Введите валидную дату");
+        if(!from || !to) {
+            console.log('Нет конечной или начальной точки')
             return;
         }
         const from_city_id = from._id;

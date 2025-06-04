@@ -1,16 +1,11 @@
-import {useEffect, useState} from "react";
+import { useState, useEffect } from "react";
 
-
-function getSeatInfoCoupe(index, coach) {
-    if (!coach) return {price: 0, label: ""};
-    if (index % 2 === 0) {
-        return {price: coach.top_price, label: "Верхнее"};
-    } else {
-        return {price: coach.bottom_price, label: "Нижнее"};
-    }
+function getSeatInfo(index, coach) {
+    if (!coach) return { price: 0, label: "" };
+    return { price: coach.top_price, label: "Сидячее" };
 }
 
-export default function CoupeScheme({ seats = [], coach, resetKey }) {
+export default function SittingScheme({ seats = [], coach, resetKey }) {
     const [selectedSeats, setSelectedSeats] = useState([]);
     const MAX_SEATS = 6;
 
@@ -28,29 +23,21 @@ export default function CoupeScheme({ seats = [], coach, resetKey }) {
         }
     };
 
-    const coupe = seats.filter(s => s.index <=32)
+    const firstPart = seats.filter(s => s.index <= 32);
+    const secondPart = seats.filter(s => s.index > 32);
 
     const splitRows = arr => ({
         top: arr.filter(s => s.index % 2 === 0),
         bottom: arr.filter(s => s.index % 2 !== 0),
-    })
+    });
 
-    const coupeGroups = []
-    for(let i = 0; i < seats.length; i+=4) {
-        coupeGroups.push(seats.slice(i, i + 4));
-    }
-    console.log(coupeGroups)
+    const firstRows = splitRows(firstPart);
+    const secondRows = splitRows(secondPart);
 
-    coupeGroups.map(coupe => {
-        const rows = splitRows(coupe);
-    })
-
-    const firstRows = splitRows(coupe)
-
-    const renderCoupe = arr => (
+    const renderRow = arr => (
         <div className="flex flex-row gap-2 justify-center mb-1">
             {arr.map(({ index, available }) => {
-                const { price, label } = getSeatInfoCoupe(index, coach);
+                const { price, label } = getSeatInfo(index, coach);
                 const isSelected = selectedSeats.includes(index);
                 return (
                     <div
@@ -65,20 +52,23 @@ export default function CoupeScheme({ seats = [], coach, resetKey }) {
                         <span className="font-bold">{index}</span>
                         <span className="text-[9px]">{label}</span>
                     </div>
-                )
+                );
             })}
         </div>
     );
 
     return (
         <div>
-            {renderCoupe(firstRows.top)}
-            {renderCoupe(firstRows.bottom)}
+            {renderRow(firstRows.top)}
+            {renderRow(firstRows.bottom)}
+            <div className="h-6" />
+            {renderRow(secondRows.top)}
+            {renderRow(secondRows.bottom)}
 
             <div className="font-bold mt-2">
-                Выбрано мест: {selectedSeats.length} <br/>
-                Сумма: {selectedSeats.reduce((sum, index) => sum + getSeatInfoCoupe(index, coach).price, 0)} ₽
+                Выбрано мест: {selectedSeats.length} <br />
+                Сумма: {selectedSeats.reduce((sum, index) => sum + getSeatInfo(index, coach).price, 0)} ₽
             </div>
         </div>
-    )
+    );
 }
