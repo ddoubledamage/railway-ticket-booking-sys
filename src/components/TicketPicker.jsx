@@ -2,7 +2,8 @@ import { useState } from "react";
 import TicketQuantityItem from "./TicketQuantityItem.jsx";
 import SeatsScheme from "./SeatsScheme.jsx";
 import SittingScheme from "./SittingScheme.jsx";
-import CoupeScheme from "./CoupeScheme.jsx"; // подключаем схему сидячего
+import CoupeScheme from "./CoupeScheme.jsx";
+import PlatzkartScheme from "./PlatzkartScheme.jsx"; // подключаем схему сидячего
 
 const coachTypeLabels = [
     { key: 'fourth', label: 'Сидячий' },
@@ -93,7 +94,15 @@ export default function TicketPicker({ coaches = [] }) {
                                 coach={selectedCoachObj.coach}
                                 resetKey={selectedCoachId}
                             />
-                        ): <SeatsScheme
+                        ): selectedCoachObj.coach.class_type === "third" ? (
+                                    <PlatzkartScheme
+                                        seats={selectedCoachObj.seats}
+                                        coach={selectedCoachObj.coach}
+                                        resetKey={selectedCoachId}
+                                    />
+                                ) :
+
+                            <SeatsScheme
                             seats={selectedCoachObj.seats}
                             coach={selectedCoachObj.coach}
                             resetKey={selectedCoachId}
